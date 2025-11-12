@@ -59,10 +59,6 @@ fastapi-sqlite-demo/
 ### 安装和运行
 
 ```bash
-# 克隆项目
-git clone <repository-url>
-cd fastapi-sqlite-demo
-
 # 创建虚拟环境（推荐）
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
