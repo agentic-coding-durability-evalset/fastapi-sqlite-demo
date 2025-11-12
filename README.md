@@ -70,9 +70,6 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 # 安装依赖
 pip install -e ".[dev]"
 
-# 或使用 uv（更快）
-uv pip install -e ".[dev]"
-
 # 运行应用
 fastapi dev app/main.py
 # 或
@@ -80,13 +77,6 @@ uvicorn app.main:app --reload
 ```
 
 应用将在 `http://localhost:8000` 启动。
-
-### API 文档
-
-启动应用后，可以访问：
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
-- **OpenAPI JSON**: http://localhost:8000/openapi.json
 
 ## API 端点
 
@@ -99,26 +89,6 @@ GET http://localhost:8000/
 ### Hero API
 
 所有 Hero 相关的 API 端点定义在 `/app/routers/heros.py` 中。
-
-## 数据库
-
-### 数据库初始化
-
-数据库模式定义在 `db/schema.ddl` 中。应用启动时会自动创建表结构。
-
-### 使用 SQLModel
-
-SQLModel 结合了 SQLAlchemy 的数据库功能和 Pydantic 的数据验证功能：
-
-```python
-from sqlmodel import SQLModel, Field
-
-class Hero(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    name: str
-    secret_name: str
-    age: int | None = None
-```
 
 ## 测试
 
@@ -134,13 +104,6 @@ pytest tests/test_sqlmodel.py
 # 运行仓库测试
 pytest app/domain/repository/tests/
 ```
-
-### 测试配置
-
-测试配置在 `pytest.ini` 中，包括：
-- 测试发现模式
-- 异步测试支持
-- 覆盖率配置
 
 ## 开发工具
 
