@@ -1,122 +1,122 @@
 # FastAPI SQLite Demo
 
-一个基于 [FastAPI](https://fastapi.tiangolo.com/) 和 SQLite 的 Python Web 应用示例项目。使用 SQLModel 作为 ORM，展示了如何构建现代化的异步 API。
+A Python Web application demo project based on [FastAPI](https://fastapi.tiangolo.com/) and SQLite. Uses SQLModel as ORM and demonstrates how to build modern asynchronous APIs.
 
-## 技术栈
+## Tech Stack
 
 - **Python**: 3.13+
 - **FastAPI**: 0.112.1+
-- **SQLModel**: 0.0.27+ (基于 SQLAlchemy 和 Pydantic)
+- **SQLModel**: 0.0.27+ (Based on SQLAlchemy and Pydantic)
 - **SQLAlchemy**: 2.0.41+
-- **aiosqlite**: 0.21.0+ (异步 SQLite 驱动)
-- **Pytest**: 8.4.2+ (测试框架)
+- **aiosqlite**: 0.21.0+ (Async SQLite driver)
+- **Pytest**: 8.4.2+ (Testing framework)
 
-## 项目结构
+## Project Structure
 
 ```
 fastapi-sqlite-demo/
 ├── app/
-│   ├── main.py              # FastAPI 应用入口
-│   ├── dependencies.py      # 依赖注入
+│   ├── main.py              # FastAPI application entry point
+│   ├── dependencies.py      # Dependency injection
 │   ├── domain/
-│   │   ├── models.py        # 数据模型定义
+│   │   ├── models.py        # Data model definitions
 │   │   ├── infra/
-│   │   │   └── db.py        # 数据库连接配置
+│   │   │   └── db.py        # Database connection configuration
 │   │   └── repository/
-│   │       ├── hero_repo.py # Hero 数据仓库
-│   │       └── tests/       # 仓库测试
+│   │       ├── hero_repo.py # Hero data repository
+│   │       └── tests/       # Repository tests
 │   └── routers/
-│       └── heros.py         # Hero API 路由
+│       └── heros.py         # Hero API routes
 ├── db/
-│   ├── schema.ddl          # 数据库模式定义
-│   └── demo.sqlite3        # SQLite 数据库文件
+│   ├── schema.ddl          # Database schema definition
+│   └── demo.sqlite3        # SQLite database file
 ├── tests/
-│   └── test_sqlmodel.py   # 集成测试
-├── pyproject.toml          # 项目配置和依赖
-├── pytest.ini             # Pytest 配置
-├── Dockerfile             # Docker 配置
-├── Justfile               # Just 构建工具配置
+│   └── test_sqlmodel.py   # Integration tests
+├── pyproject.toml          # Project configuration and dependencies
+├── pytest.ini             # Pytest configuration
+├── Dockerfile             # Docker configuration
+├── Justfile               # Just build tool configuration
 └── README.md
 ```
 
-## 功能特性
+## Features
 
-- RESTful API 设计
-- 异步数据库操作
-- SQLModel ORM (结合 SQLAlchemy 和 Pydantic)
-- 自动 API 文档 (Swagger/OpenAPI)
-- 依赖注入
-- 单元测试和集成测试
-- Docker 支持
+- RESTful API design
+- Asynchronous database operations
+- SQLModel ORM (combining SQLAlchemy and Pydantic)
+- Automatic API documentation (Swagger/OpenAPI)
+- Dependency injection
+- Unit and integration testing
+- Docker support
 
-## 快速开始
+## Quick Start
 
-### 前置要求
+### Prerequisites
 
-- Python 3.13 或更高版本
-- pip 或 uv (推荐)
+- Python 3.13 or higher
+- pip or uv (recommended)
 
-### 安装和运行
+### Installation and Running
 
 ```bash
-# 创建虚拟环境（推荐）
+# Create virtual environment (recommended)
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# 安装依赖
+# Install dependencies
 pip install -e ".[dev]"
 
-# 运行应用
+# Run application
 fastapi dev app/main.py
 ```
 
-应用将在 `http://localhost:8000` 启动。
+The application will start at `http://localhost:8000`.
 
-## API 端点
+## API Endpoints
 
-### 根路径
+### Root Path
 ```http
 GET http://localhost:8000/
 ```
-响应: `{"message": "Hello World!"}`
+Response: `{"message": "Hello World!"}`
 
 ### Hero API
 
-所有 Hero 相关的 API 端点定义在 `/app/routers/heros.py` 中。
+All Hero-related API endpoints are defined in `/app/routers/heros.py`.
 
-## 开发工具
+## Development Tools
 
 ### Just
 
-项目包含 `Justfile`，提供便捷的命令：
+The project includes a `Justfile` that provides convenient commands:
 
 ```bash
-# 查看可用命令
+# View available commands
 just
 
-# 运行开发服务器
+# Run development server
 just dev
 
-# 运行测试
+# Run tests
 just test
 ```
 
-## 项目特点
+## Project Features
 
-### 领域驱动设计
+### Domain-Driven Design
 
-项目采用领域驱动设计 (DDD) 结构：
-- **Domain**: 业务逻辑和模型
-- **Infrastructure**: 基础设施（数据库）
-- **Repository**: 数据访问层
-- **Routers**: API 路由层
+The project adopts a Domain-Driven Design (DDD) structure:
+- **Domain**: Business logic and models
+- **Infrastructure**: Infrastructure layer (database)
+- **Repository**: Data access layer
+- **Routers**: API routing layer
 
-### 依赖注入
+### Dependency Injection
 
-使用 FastAPI 的依赖注入系统管理数据库会话等资源。
+Uses FastAPI's dependency injection system to manage resources such as database sessions.
 
-## 参考资源
+## References
 
-- [FastAPI 文档](https://fastapi.tiangolo.com/)
-- [SQLModel 文档](https://sqlmodel.tiangolo.com/)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [SQLModel Documentation](https://sqlmodel.tiangolo.com/)
 - [Simple Hero API with FastAPI](https://sqlmodel.tiangolo.com/tutorial/fastapi/simple-hero-api/)
