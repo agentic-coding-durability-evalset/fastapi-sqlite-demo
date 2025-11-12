@@ -90,21 +90,6 @@ GET http://localhost:8000/
 
 所有 Hero 相关的 API 端点定义在 `/app/routers/heros.py` 中。
 
-## 测试
-
-### 运行测试
-
-```bash
-# 运行所有测试
-pytest
-
-# 运行特定测试文件
-pytest tests/test_sqlmodel.py
-
-# 运行仓库测试
-pytest app/domain/repository/tests/
-```
-
 ## 开发工具
 
 ### Just
@@ -120,24 +105,6 @@ just dev
 
 # 运行测试
 just test
-```
-
-### 代码质量
-
-开发依赖包括：
-- **Ruff**: 代码格式化和 linting
-- **SQLCodeGen**: 从数据库生成模型
-
-## Docker 支持
-
-### 构建和运行
-
-```bash
-# 构建镜像
-docker build -t fastapi-sqlite-demo .
-
-# 运行容器
-docker run -p 8000:8000 fastapi-sqlite-demo
 ```
 
 ## 项目特点
