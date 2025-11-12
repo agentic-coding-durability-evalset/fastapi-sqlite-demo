@@ -72,8 +72,6 @@ pip install -e ".[dev]"
 
 # 运行应用
 fastapi dev app/main.py
-# 或
-uvicorn app.main:app --reload
 ```
 
 应用将在 `http://localhost:8000` 启动。
